@@ -298,9 +298,8 @@ function TextShimmer({
     <motion.div
       className={cn(
         'relative inline-block bg-[length:250%_100%,auto] bg-clip-text',
-        'text-transparent [--base-color:#6b7280] [--base-gradient-color:#000000]',
+        'text-transparent [--base-color:#9ca3af] [--base-gradient-color:#ffffff]',
         '[--bg:linear-gradient(90deg,#0000_calc(50%-var(--spread)),var(--base-gradient-color),#0000_calc(50%+var(--spread)))] [background-repeat:no-repeat,padding-box]',
-        'dark:[--base-color:#9ca3af] dark:[--base-gradient-color:#ffffff] dark:[--bg:linear-gradient(90deg,#0000_calc(50%-var(--spread)),var(--base-gradient-color),#0000_calc(50%+var(--spread)))]',
         className
       )}
       initial={{ backgroundPosition: '100% center' }}
@@ -412,7 +411,7 @@ function TechCard({ name, description, logo, category, className }: TechCardProp
         ref={cardRef}
         data-glow
         className={cn(
-          "relative group h-64 w-80 rounded-2xl bg-white/50 dark:bg-dark-100/50 backdrop-blur-sm border border-gray-200/50 dark:border-dark-200/50 p-6 transition-all duration-500 hover:scale-105",
+          "relative group h-64 w-80 rounded-2xl bg-gray-800/80 dark:bg-gray-900/80 backdrop-blur-sm border border-gray-700/50 dark:border-gray-800/50 p-6 transition-all duration-500 hover:scale-105",
           className
         )}
         style={{
@@ -449,19 +448,19 @@ function TechCard({ name, description, logo, category, className }: TechCardProp
         <div data-glow></div>
         <div className="relative z-10 h-full flex flex-col justify-between">
           <div className="flex items-center justify-between">
-            <div className="text-xs font-mono text-gray-500 dark:text-gray-400 uppercase tracking-wider">
+            <div className="text-xs font-mono text-gray-400 uppercase tracking-wider">
               {category}
             </div>
-            <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-gray-100 dark:bg-dark-200">
+            <div className="w-12 h-12 flex items-center justify-center rounded-lg bg-gray-700 dark:bg-gray-800">
               {logo}
             </div>
           </div>
           
           <div className="space-y-3">
-            <h3 className="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+            <h3 className="text-xl font-semibold text-white group-hover:text-blue-400 transition-colors">
               {name}
             </h3>
-            <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed">
+            <p className="text-sm text-gray-300 leading-relaxed">
               {description}
             </p>
           </div>
@@ -557,31 +556,31 @@ export const TechFrameworks: React.FC = () => {
   ];
 
   return (
-    <section className="py-16 px-4 md:px-12 bg-gradient-to-b from-gray-50 to-white dark:from-dark-100 dark:to-dark-200 relative overflow-hidden">
+    <section className="py-20 px-6 md:px-12 bg-gray-900 dark:bg-gray-950 relative overflow-hidden">
       <Particles
         className="absolute inset-0"
-        quantity={50}
+        quantity={60}
         ease={80}
         color="#3b82f6"
         refresh
       />
       
-      <div className="relative z-10 max-w-6xl mx-auto">
-        <div className="text-center mb-16">
+      <div className="relative z-10 max-w-7xl mx-auto">
+        <div className="text-center mb-20">
           <TextShimmer
-            className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 dark:text-white"
+            className="text-4xl md:text-5xl font-bold mb-6 text-white"
             duration={3}
             spread={3}
           >
             Tech & Frameworks
           </TextShimmer>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             Explore as tecnologias de ponta e frameworks que impulsionam o desenvolvimento web moderno. 
             Do frontend ao backend, descubra as ferramentas que tornam a codificação uma experiência incrível.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 place-items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 place-items-center">
           {technologies.map((tech, index) => (
             <motion.div
               key={tech.name}
@@ -607,9 +606,9 @@ export const TechFrameworks: React.FC = () => {
           viewport={{ once: true }}
           className="mt-20 text-center"
         >
-          <div className="inline-block p-8 rounded-2xl bg-white/50 dark:bg-dark-100/50 backdrop-blur-sm border border-gray-200/50 dark:border-dark-200/50">
-            <h3 className="text-2xl font-semibold mb-4 text-gray-900 dark:text-white">Pronto para Começar a Codar?</h3>
-            <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-md mx-auto">
+          <div className="inline-block p-8 rounded-2xl bg-gray-800/50 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 dark:border-gray-800/50">
+            <h3 className="text-2xl font-semibold mb-4 text-white">Pronto para Começar a Codar?</h3>
+            <p className="text-gray-300 mb-6 max-w-md mx-auto">
               Essas tecnologias trabalham juntas para criar experiências web incríveis. 
               Comece sua jornada com qualquer uma dessas ferramentas poderosas.
             </p>
@@ -617,7 +616,7 @@ export const TechFrameworks: React.FC = () => {
               {["React", "TypeScript", "Next.js", "Tailwind"].map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1 text-xs font-medium bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded-full border border-blue-200 dark:border-blue-800"
+                  className="px-3 py-1 text-xs font-medium bg-blue-500/20 text-blue-300 rounded-full border border-blue-500/30"
                 >
                   {tag}
                 </span>
