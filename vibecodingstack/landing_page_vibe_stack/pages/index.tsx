@@ -2,6 +2,7 @@ import React from "react";
 import { Hero } from "../components/Hero";
 import { MainStack } from "../components/MainStack";
 import { TechFrameworks } from "../components/TechFrameworks";
+import { iasvibecoding } from "../components/iasvibecoding";
 import { CloudDatabases } from "../components/CloudDatabases";
 import { GitHubFlow } from "../components/GitHubFlow";
 import { DeployOptions } from "../components/DeployOptions";
@@ -14,6 +15,7 @@ export default function LandingPage() {
       <Hero />
       <MainStack />
       <TechFrameworks />
+      <iasvibecoding />
       <CloudDatabases />
       <GitHubFlow />
       <DeployOptions />
