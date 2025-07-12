@@ -1,0 +1,1 @@
+// Hero component já existente, importar do projeto original
