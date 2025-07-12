@@ -8,14 +8,39 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  
+  /* Light mode colors */
+  --bg-primary: 255, 255, 255;
+  --bg-secondary: 249, 250, 251;
+  --text-primary: 17, 24, 39;
+  --text-secondary: 75, 85, 99;
+  --border-color: 229, 231, 235;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+[data-theme="dark"] {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+  
+  /* Dark mode colors */
+  --bg-primary: 24, 24, 27;
+  --bg-secondary: 39, 39, 42;
+  --text-primary: 244, 244, 245;
+  --text-secondary: 161, 161, 170;
+  --border-color: 63, 63, 70;
+}
+
+.dark {
+  --foreground-rgb: 255, 255, 255;
+  --background-start-rgb: 0, 0, 0;
+  --background-end-rgb: 0, 0, 0;
+  
+  /* Dark mode colors */
+  --bg-primary: 24, 24, 27;
+  --bg-secondary: 39, 39, 42;
+  --text-primary: 244, 244, 245;
+  --text-secondary: 161, 161, 170;
+  --border-color: 63, 63, 70;
 }
 
 body {
@@ -27,6 +52,16 @@ body {
     )
     rgb(var(--background-start-rgb));
   font-family: 'Inter', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dark body {
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(24, 24, 27)
+    )
+    rgb(24, 24, 27);
 }
 
 * {
@@ -45,14 +80,58 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: rgb(var(--bg-secondary));
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(45deg, #8b5cf6, #06b6d4);
-  border-radius: 10px;
+  background: rgb(var(--border-color));
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(45deg, #7c3aed, #0891b2);
+  background: rgb(var(--text-secondary));
+}
+
+/* Dark mode utilities */
+@layer utilities {
+  .bg-surface {
+    background-color: rgb(var(--bg-primary));
+  }
+  
+  .bg-surface-secondary {
+    background-color: rgb(var(--bg-secondary));
+  }
+  
+  .text-primary {
+    color: rgb(var(--text-primary));
+  }
+  
+  .text-secondary {
+    color: rgb(var(--text-secondary));
+  }
+  
+  .border-primary {
+    border-color: rgb(var(--border-color));
+  }
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Theme transition */
+* {
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
