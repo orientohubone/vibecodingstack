@@ -25,7 +25,11 @@ export function Tabs({ className, value, onValueChange, children, ...props }: Ta
   React.useEffect(() => {
     if (!internalValue) {
       React.Children.forEach(children, (child: any) => {
-        if (child?.type?.displayName === "TabsTrigger" && child.props.value) {
+        if (
+          React.isValidElement(child) &&
+          typeof child.type === "function" &&
+          (child.type.displayName === "TabsTrigger")
+        ) {
           setInternalValue(child.props.value);
         }
       });
@@ -36,13 +40,19 @@ export function Tabs({ className, value, onValueChange, children, ...props }: Ta
   // Clone children and inject props
   const clonedChildren = React.Children.map(children, (child: any) => {
     if (!React.isValidElement(child)) return child;
-    if (child.type.displayName === "TabsList") {
+    if (
+      typeof child.type === "function" &&
+      child.type.displayName === "TabsList"
+    ) {
       return React.cloneElement(child, {
         value: internalValue,
         onValueChange: handleValueChange,
       });
     }
-    if (child.type.displayName === "TabsContent") {
+    if (
+      typeof child.type === "function" &&
+      child.type.displayName === "TabsContent"
+    ) {
       return React.cloneElement(child, {
         activeValue: internalValue,
       });
