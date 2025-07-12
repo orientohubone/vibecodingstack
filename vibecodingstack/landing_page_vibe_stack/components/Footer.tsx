@@ -48,7 +48,7 @@ export const Footer: React.FC = () => {
             
             <div className="flex items-center gap-2 text-gray-400">
               <MapPin className="w-4 h-4" />
-              <span className="text-sm">São Paulo, Brasil</span>
+              <span className="text-sm">Pompeia, Brasil</span>
             </div>
           </motion.div>
 
@@ -92,7 +92,7 @@ export const Footer: React.FC = () => {
                   href="mailto:contato@orientohub.com" 
                   className="text-gray-300 hover:text-white transition-colors duration-200 text-sm"
                 >
-                  contato@orientohub.com
+                  orientohub@gmail.com
                 </a>
               </div>
               
@@ -133,7 +133,7 @@ export const Footer: React.FC = () => {
                 © {currentYear} orientohub. Todos os direitos reservados.
               </p>
               <p className="text-gray-500 text-xs mt-1">
-                CNPJ: 12.345.678/0001-90
+                CNPJ: 48.809.603/0001-65
               </p>
             </div>
             
