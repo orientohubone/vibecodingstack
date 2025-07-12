@@ -192,7 +192,7 @@ interface AINotification {
   model: string;
 }
 
-const VibeCodingAISection = () => {
+const IasvibeCoding = () => {
   const [selectedModel, setSelectedModel] = useState("claude");
   const [activeTab, setActiveTab] = useState("overview");
 
