@@ -5,6 +5,7 @@ import { CloudDatabases } from "../components/CloudDatabases";
 import { GitHubFlow } from "../components/GitHubFlow";
 import { DeployOptions } from "../components/DeployOptions";
 import { IntegrationFlow } from "../components/IntegrationFlow";
+import { Footer } from "../components/Footer";
 
 export default function LandingPage() {
   return (
@@ -15,6 +16,7 @@ export default function LandingPage() {
       <GitHubFlow />
       <DeployOptions />
       <IntegrationFlow />
+      <Footer />
     </main>
   );
 }
