@@ -602,4 +602,4 @@ const VibeCodingAISection = () => {
   );
 };
 
-export default VibeCodingAISection;
+export default IasvibeCoding;
