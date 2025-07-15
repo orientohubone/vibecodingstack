@@ -8,40 +8,35 @@ const stackTools = [
     description: "Plataforma de desenvolvimento visual para criar aplicações web rapidamente",
     icon: Heart,
     color: "from-pink-500 to-rose-500",
-    darkColor: "dark:from-pink-600 dark:to-rose-600",
-    logo: "❤️"
+    darkColor: "dark:from-pink-600 dark:to-rose-600"
   },
   {
     name: "Bolt",
     description: "Ferramenta de construção ultra-rápida para projetos JavaScript",
     icon: Zap,
     color: "from-yellow-500 to-orange-500",
-    darkColor: "dark:from-yellow-600 dark:to-orange-600",
-    logo: "⚡"
+    darkColor: "dark:from-yellow-600 dark:to-orange-600"
   },
   {
     name: "Replit",
     description: "IDE online colaborativo com ambientes de desenvolvimento prontos",
     icon: Terminal,
     color: "from-green-500 to-emerald-500",
-    darkColor: "dark:from-green-600 dark:to-emerald-600",
-    logo: "🔧"
+    darkColor: "dark:from-green-600 dark:to-emerald-600"
   },
   {
     name: "Cursor AI",
     description: "Editor de código com IA integrada para desenvolvimento assistido",
     icon: MousePointer,
     color: "from-blue-500 to-indigo-500",
-    darkColor: "dark:from-blue-600 dark:to-indigo-600",
-    logo: "🎯"
+    darkColor: "dark:from-blue-600 dark:to-indigo-600"
   },
   {
     name: "Firebase Studio",
     description: "Plataforma completa para desenvolvimento de aplicações em tempo real",
     icon: Database,
     color: "from-orange-500 to-red-500",
-    darkColor: "dark:from-orange-600 dark:to-red-600",
-    logo: "🔥"
+    darkColor: "dark:from-orange-600 dark:to-red-600"
   }
 ];
 
@@ -75,12 +70,12 @@ export const MainStack: React.FC = () => {
               whileHover={{ y: -8, scale: 1.02 }}
               className="group"
             >
-              <div className="h-full p-6 bg-white dark:bg-dark-100 rounded-2xl shadow-md dark:shadow-xl border border-gray-200 dark:border-dark-200 hover:shadow-xl dark:hover:shadow-2xl transition-all duration-300">
+              <div className="h-full p-6 bg-white dark:bg-dark-100 rounded-2xl shadow-md dark:shadow-xl border border-gray-200 dark:border-dark-200 hover:shadow-xl dark:hover:shadow-2xl transition-all">
                 <div className="flex items-center gap-4 mb-4">
                   <div className={`p-3 rounded-xl bg-gradient-to-br ${tool.color} ${tool.darkColor} text-white`}>
                     <tool.icon className="w-6 h-6" />
                   </div>
-                  <div className="text-3xl">{tool.logo}</div>
+                  {/* Logo removido */}
                 </div>
                 
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
@@ -91,10 +86,7 @@ export const MainStack: React.FC = () => {
                   {tool.description}
                 </p>
                 
-                <div className="flex items-center justify-between">
-                  <div className={`w-full h-1 bg-gradient-to-r ${tool.color} ${tool.darkColor} rounded-full`}></div>
-                </div>
-                
+                {/* Barra duplicada removida */}
                 <motion.div
                   initial={{ width: 0 }}
                   whileInView={{ width: "100%" }}
