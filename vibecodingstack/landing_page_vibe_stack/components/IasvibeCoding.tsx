@@ -15,6 +15,7 @@ const aiModels = [
     description: "IA da Anthropic com foco em interpretação semântica.",
     icon: <Brain className="w-5 h-5" />,
     status: "ativo",
+    borderColor: "before:border-indigo-500/20"
   },
   {
     id: "gpt4",
@@ -22,6 +23,7 @@ const aiModels = [
     description: "Modelo da OpenAI com grande precisão e contexto.",
     icon: <Cpu className="w-5 h-5" />,
     status: "ativo",
+    borderColor: "before:border-purple-500/20"
   },
   {
     id: "cursor",
@@ -29,6 +31,7 @@ const aiModels = [
     description: "Assistente de codificação com GitHub e VSCode.",
     icon: <Code className="w-5 h-5" />,
     status: "beta",
+    borderColor: "before:border-sky-400/20"
   },
 ];
 
@@ -126,7 +129,10 @@ const IasvibeCoding = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
               >
-                <Card onClick={() => setSelectedModel(model.id)} className="bg-white/5 backdrop-blur border border-white/10 shadow-md cursor-pointer">
+                <Card className={cn(
+                  "group relative bg-white/5 backdrop-blur shadow-md cursor-pointer overflow-hidden border border-white/10 before:absolute before:inset-0 before:rounded-2xl before:border before:blur-[2px] before:opacity-70 before:pointer-events-none",
+                  model.borderColor
+                )} onClick={() => setSelectedModel(model.id)}>
                   <CardHeader className="flex items-center gap-2">
                     {model.icon}
                     <CardTitle>{model.title}</CardTitle>
