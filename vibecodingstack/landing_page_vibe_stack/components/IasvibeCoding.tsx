@@ -8,8 +8,85 @@ import { CheckCircle, Activity, BarChart3, Cpu, Sparkles, Globe, Code, Zap } fro
 import AnimatedTextCycle from "@/components/AnimatedTextCycle";
 
 const aiModels = [
-  // ... mesmo conteúdo de aiModels
-];
+  {
+    id: "gpt4",
+    name: "GPT-4o",
+    icon: Cpu,
+    version: "OpenAI",
+    status: "online",
+    description: "Modelo multimodal com capacidade de raciocínio e código.",
+    color: "violet",
+    features: ["Contexto longo", "Geração de código", "API robusta"],
+    capabilities: ["Chat conversacional", "Explicações técnicas", "Resumos avançados"],
+    useCases: ["Assistente de programação", "Chatbots", "Análise de documentos"],
+    performance: { velocidade: 94, precisao: 96, contexto: 98 }
+  },
+  {
+    id: "claude",
+    name: "Claude 3.5",
+    icon: Sparkles,
+    version: "Anthropic",
+    status: "online",
+    description: "Modelo focado em interpretação contextual e criatividade.",
+    color: "cyan",
+    features: ["Interpretação de prompt", "Raciocínio criativo", "Segurança"],
+    capabilities: ["Auxílio criativo", "Code review", "Pesquisa semântica"],
+    useCases: ["Storytelling", "Análises contextuais", "Atendimento"],
+    performance: { velocidade: 92, precisao: 93, contexto: 95 }
+  },
+  {
+    id: "gemini",
+    name: "Gemini Pro",
+    icon: Globe,
+    version: "Google",
+    status: "beta",
+    description: "Modelo com foco em pesquisa e conectividade com web.",
+    color: "pink",
+    features: ["Busca web", "Integração com Google", "Compreensão visual"],
+    capabilities: ["Pesquisa em tempo real", "Resumos factuais", "Web agent"],
+    useCases: ["Pesquisa assistida", "Painéis informativos", "Geração de insights"],
+    performance: { velocidade: 89, precisao: 91, contexto: 90 }
+  },
+  {
+    id: "mistral",
+    name: "Mistral",
+    icon: Code,
+    version: "Open Source",
+    status: "offline",
+    description: "Modelo open source com foco em aplicações locais.",
+    color: "blue",
+    features: ["Execução local", "Privacidade", "Customização"],
+    capabilities: ["Apps embarcados", "Robôs", "Automação"],
+    useCases: ["IoT", "RPA", "Sistemas offline"],
+    performance: { velocidade: 80, precisao: 84, contexto: 78 }
+  },
+  {
+    id: "bolt",
+    name: "Bolt Mini",
+    icon: Zap,
+    version: "Vercel AI",
+    status: "preview",
+    description: "Modelo leve otimizado para velocidade em edge.",
+    color: "orange",
+    features: ["Execução instantânea", "Deploy edge", "Menor latência"],
+    capabilities: ["Chat rápido", "Ações imediatas", "Interface reativa"],
+    useCases: ["LPs interativas", "Bots de site", "Consultas curtas"],
+    performance: { velocidade: 98, precisao: 82, contexto: 75 }
+  },
+  {
+    id: "llama",
+    name: "LLaMA 3",
+    icon: BarChart3,
+    version: "Meta",
+    status: "online",
+    description: "Modelo fundacional da Meta com ótimo desempenho geral.",
+    color: "green",
+    features: ["Multilinguagem", "Eficiência energética", "Compatível com HuggingFace"],
+    capabilities: ["Traduções", "Geração de texto", "Análise textual"],
+    useCases: ["Assistentes locais", "Educacional", "Pesquisa"],
+    performance: { velocidade: 87, precisao: 89, contexto: 88 }
+  }
+]; // O array permanece como já definido
 
 const IasvibeCoding = () => {
   const [selectedModel, setSelectedModel] = useState("claude");
@@ -38,36 +115,31 @@ const IasvibeCoding = () => {
           </motion.p>
         </div>
 
-        <Tabs defaultValue="overview" className="space-y-6">
-          <TabsList className="grid grid-cols-3 max-w-xl mx-auto">
+        <Tabs defaultValue="overview" className="w-full">
+          <TabsList className="flex justify-center space-x-4 mb-8">
             <TabsTrigger value="overview">Visão Geral</TabsTrigger>
             <TabsTrigger value="models">Modelos IA</TabsTrigger>
             <TabsTrigger value="activity">Atividade</TabsTrigger>
           </TabsList>
 
           <TabsContent value="overview">
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               {aiModels.map((m) => (
-                <Card key={m.id} className={`border-2 border-${m.color}-500/30 bg-gray-900/50 backdrop-blur`}>
-                  <CardHeader className="flex flex-row items-start justify-between gap-4">
-                    <div className="flex items-center gap-3">
-                      <m.icon className={`text-${m.color}-500`} />
-                      <div>
-                        <CardTitle className="text-white text-lg">{m.name}</CardTitle>
-                        <CardDescription className="text-gray-400 text-sm">{m.version}</CardDescription>
-                      </div>
-                    </div>
-                    <Badge variant="outline" className="text-xs border-white/10 text-white/80">{m.status}</Badge>
-                  </CardHeader>
-                  <CardContent className="text-gray-300 text-sm space-y-2">
-                    <p>{m.description}</p>
+                <Card key={m.id} className={`border-2 border-${m.color}-500/30 bg-white/5 backdrop-blur-md shadow-md rounded-2xl`}>
+                  <CardHeader className="flex-row items-center gap-4">
+                    <m.icon className={`text-${m.color}-500 w-8 h-8`} />
                     <div>
-                      <p className="text-xs font-semibold mb-1">Principais Recursos:</p>
-                      <div className="flex flex-wrap gap-2">
-                        {m.features.map((f, idx) => (
-                          <Badge key={idx} variant="secondary" className="text-xs">{f}</Badge>
-                        ))}
-                      </div>
+                      <CardTitle className="text-white">{m.name}</CardTitle>
+                      <CardDescription className="text-sm text-gray-400">{m.description}</CardDescription>
+                    </div>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="flex flex-wrap gap-2 mt-2">
+                      {m.features.map((feat, i) => (
+                        <Badge key={i} variant="outline" className="text-white border-white/20">
+                          {feat}
+                        </Badge>
+                      ))}
                     </div>
                   </CardContent>
                 </Card>
@@ -76,10 +148,14 @@ const IasvibeCoding = () => {
           </TabsContent>
 
           <TabsContent value="models">
-            <div className="flex flex-col md:flex-row gap-6">
-              <div className="w-full md:w-1/3 space-y-2">
+            <div className="flex flex-col lg:flex-row gap-6">
+              <div className="w-full lg:w-1/3 space-y-3">
                 {aiModels.map((m) => (
-                  <div key={m.id} onClick={() => setSelectedModel(m.id)} className={`flex items-center gap-3 px-4 py-2 rounded-xl cursor-pointer transition-colors hover:bg-white/5 ${selectedModel === m.id ? "bg-white/5" : ""}`}>
+                  <div
+                    key={m.id}
+                    onClick={() => setSelectedModel(m.id)}
+                    className={`flex items-center gap-3 px-4 py-2 rounded-xl cursor-pointer transition-colors hover:bg-white/5 ${selectedModel === m.id ? "bg-white/5" : ""}`}
+                  >
                     <m.icon className={`text-${m.color}-500`} />
                     <div>
                       <p className="text-white font-semibold text-sm">{m.name}</p>
@@ -88,46 +164,25 @@ const IasvibeCoding = () => {
                   </div>
                 ))}
               </div>
-              <div className="w-full md:w-2/3">
-                <Card className="bg-gray-900/50 backdrop-blur border border-white/10">
+              <div className="w-full lg:w-2/3">
+                <Card className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl">
                   <CardHeader>
-                    <div className="flex items-center gap-3">
-                      <model.icon className={`text-${model.color}-500`} />
-                      <div>
-                        <CardTitle className="text-white text-lg">{model.name}</CardTitle>
-                        <CardDescription className="text-gray-400 text-sm">{model.version}</CardDescription>
-                      </div>
-                    </div>
+                    <CardTitle className="text-white">{model?.name}</CardTitle>
+                    <CardDescription className="text-gray-400">{model?.description}</CardDescription>
                   </CardHeader>
-                  <CardContent className="text-gray-300 space-y-4">
-                    <p>{model.description}</p>
-                    <div className="grid grid-cols-2 gap-6">
+                  <CardContent>
+                    <div className="grid grid-cols-2 gap-4">
                       <div>
-                        <p className="font-semibold text-sm mb-2">Capacidades</p>
-                        <ul className="text-sm space-y-1">
-                          {model.capabilities.map((cap, idx) => (
-                            <li key={idx} className="flex items-center gap-2 text-green-400"><CheckCircle className="w-4 h-4" /> {cap}</li>
-                          ))}
+                        <p className="text-sm text-gray-300 mb-1">Capacidades</p>
+                        <ul className="list-disc list-inside text-white text-sm">
+                          {model?.capabilities.map((cap, i) => <li key={i}>{cap}</li>)}
                         </ul>
                       </div>
                       <div>
-                        <p className="font-semibold text-sm mb-2">Casos de Uso</p>
-                        <ul className="text-sm space-y-1">
-                          {model.useCases.map((uc, idx) => (
-                            <li key={idx} className="flex items-center gap-2 text-blue-400"><Activity className="w-4 h-4" /> {uc}</li>
-                          ))}
+                        <p className="text-sm text-gray-300 mb-1">Casos de uso</p>
+                        <ul className="list-disc list-inside text-white text-sm">
+                          {model?.useCases.map((use, i) => <li key={i}>{use}</li>)}
                         </ul>
-                      </div>
-                    </div>
-                    <div>
-                      <p className="font-semibold text-sm mb-2">Performance</p>
-                      <div className="space-y-1">
-                        {Object.entries(model.performance).map(([k, v], idx) => (
-                          <div key={idx} className="flex justify-between text-xs">
-                            <span className="capitalize text-gray-400">{k}</span>
-                            <span className="text-white font-semibold">{v}%</span>
-                          </div>
-                        ))}
                       </div>
                     </div>
                   </CardContent>
@@ -137,33 +192,17 @@ const IasvibeCoding = () => {
           </TabsContent>
 
           <TabsContent value="activity">
-            <Card className="bg-gray-900/50 backdrop-blur border border-white/10">
-              <CardHeader>
-                <CardTitle className="text-white">Atividade Recente das IAs</CardTitle>
-                <CardDescription className="text-gray-400 text-sm">Acompanhe as últimas atualizações e integrações dos modelos de IA no Vibe Coding</CardDescription>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                {[
-                  { id: "gemini", text: "Gemini Pro API connected", sub: "Real-time search enabled", time: "8m ago" },
-                  { id: "gpt4", text: "GPT-4o integration complete", sub: "Multimodal processing active", time: "5m ago" },
-                  { id: "claude", text: "Claude 3.5 Sonnet deployed", sub: "Enhanced reasoning capabilities", time: "2m ago" },
-                ].map((item, idx) => {
-                  const m = aiModels.find((a) => a.id === item.id)!;
-                  return (
-                    <div key={idx} className="bg-black/20 px-4 py-3 rounded-xl flex items-center justify-between">
-                      <div className="flex items-center gap-4">
-                        <m.icon className={`text-${m.color}-500`} />
-                        <div>
-                          <p className="text-white text-sm font-medium">{item.text} <span className="text-gray-400 text-xs">· {item.time}</span></p>
-                          <p className="text-xs text-gray-400">{item.sub}</p>
-                        </div>
-                      </div>
-                      <span className="text-xs text-gray-500">{m.name}</span>
-                    </div>
-                  );
-                })}
-              </CardContent>
-            </Card>
+            <div className="space-y-4">
+              {aiModels.map((m, idx) => (
+                <div key={idx} className="flex items-center gap-4 p-4 bg-white/5 rounded-xl border border-white/10">
+                  <m.icon className={`text-${m.color}-500`} />
+                  <div>
+                    <p className="text-white font-semibold text-sm">{m.name}</p>
+                    <p className="text-xs text-gray-400">Última atividade registrada com {m.performance.velocidade}% de velocidade.</p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </TabsContent>
         </Tabs>
       </div>
