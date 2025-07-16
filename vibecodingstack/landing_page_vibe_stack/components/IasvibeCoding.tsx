@@ -595,7 +595,7 @@ const IasvibeCoding = () => {
                 {model}
               </Badge>
               <Badge 
-                variant={priority === "high" ? "destructive" : priority === "medium" ? "default" : "outline"}
+                variant={priority === "high" ? "default" : priority === "medium" ? "secondary" : "outline"}
                 className="text-xs"
               >
                 {priority}
