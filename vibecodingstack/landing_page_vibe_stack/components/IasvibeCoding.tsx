@@ -6,66 +6,61 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Particles } from "@/components/Particles";
-import TextShimmer from "@/components/TextShimmer"; // assumir que TextShimmer está separado ou reutilizar
+import TextShimmer from "@/components/TextShimmer";
 
-export interface AnimatedListProps {
-  className?: string;
-  children: React.ReactNode;
-  delay?: number;
+interface AIModel {
+  id: string;
+  title: string;
+  description: string;
+  icon: React.ReactNode;
+  status: string;
 }
 
-export const AnimatedList = React.memo(({ className, children, delay = 1000 }: AnimatedListProps) => {
-  const [index, setIndex] = useState(0);
-  const childrenArray = React.Children.toArray(children);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % childrenArray.length);
-    }, delay);
-
-    return () => clearInterval(interval);
-  }, [childrenArray.length, delay]);
-
-  const itemsToShow = useMemo(() => childrenArray.slice(0, index + 1).reverse(), [index, childrenArray]);
-
-  return (
-    <div className={`flex flex-col items-center gap-4 ${className}`}>
-      <AnimatePresence>
-        {itemsToShow.map((item) => (
-          <AnimatedListItem key={(item as ReactElement).key}>{item}</AnimatedListItem>
-        ))}
-      </AnimatePresence>
-    </div>
-  );
-});
-
-AnimatedList.displayName = "AnimatedList";
-
-export function AnimatedListItem({ children }: { children: React.ReactNode }) {
-  return (
-    <motion.div
-      initial={{ scale: 0, opacity: 0 }}
-      animate={{ scale: 1, opacity: 1, originY: 0 }}
-      exit={{ scale: 0, opacity: 0 }}
-      transition={{ type: "spring", stiffness: 350, damping: 40 }}
-      layout
-      className="mx-auto w-full"
-    >
-      {children}
-    </motion.div>
-  );
+interface NotificationProps {
+  icon: React.ReactNode;
+  message: string;
 }
+
+const aiModels: AIModel[] = [
+  {
+    id: "claude",
+    title: "Claude",
+    description: "IA da Anthropic com foco em interpretação semântica e fluidez natural.",
+    icon: <Brain className="w-5 h-5" />, 
+    status: "ativo"
+  },
+  {
+    id: "gpt4",
+    title: "GPT-4",
+    description: "Modelo da OpenAI com grande precisão e capacidade de contexto.",
+    icon: <Cpu className="w-5 h-5" />, 
+    status: "ativo"
+  },
+  {
+    id: "cursor",
+    title: "Cursor AI",
+    description: "Assistente de codificação com integração nativa ao VSCode e GitHub.",
+    icon: <Code className="w-5 h-5" />, 
+    status: "beta"
+  }
+];
+
+const notifications: NotificationProps[] = [
+  { icon: <Sparkles className="w-4 h-4 text-green-400" />, message: "Claude respondeu 98% das queries com sucesso" },
+  { icon: <Sparkles className="w-4 h-4 text-purple-400" />, message: "Cursor AI sugeriu refatorações em tempo real" },
+  { icon: <Sparkles className="w-4 h-4 text-blue-400" />, message: "GPT-4 completou código com base em testes unitários" }
+];
+
+const Notification = ({ icon, message }: NotificationProps) => (
+  <div className="flex items-center gap-2 text-sm text-gray-300">
+    {icon}
+    <span>{message}</span>
+  </div>
+);
 
 const IasvibeCoding = () => {
   const [selectedModel, setSelectedModel] = useState("claude");
   const [activeTab, setActiveTab] = useState("overview");
-
-  const aiModels = [...]; // manter dados como estavam
-  const notifications = [...];
-
-  const Notification = (...) => (...);
-
-  const PerformanceChart = (...) => (...);
 
   const selectedModelData = aiModels.find(m => m.id === selectedModel) || aiModels[0];
 
@@ -105,8 +100,14 @@ const IasvibeCoding = () => {
                   viewport={{ once: true }}
                 >
                   <Card className="h-full bg-white/5 backdrop-blur-md border border-white/10 shadow-lg hover:shadow-xl transition-all cursor-pointer" onClick={() => setSelectedModel(model.id)}>
-                    <CardHeader>...</CardHeader>
-                    <CardContent>...</CardContent>
+                    <CardHeader className="flex items-center gap-3">
+                      {model.icon}
+                      <CardTitle>{model.title}</CardTitle>
+                      <Badge variant="outline">{model.status}</Badge>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="text-sm text-gray-400">{model.description}</CardDescription>
+                    </CardContent>
                   </Card>
                 </motion.div>
               ))}
@@ -115,16 +116,34 @@ const IasvibeCoding = () => {
 
           <TabsContent value="models" className="space-y-6">
             <div className="flex flex-col lg:flex-row gap-6">
-              <div className="lg:w-1/3 space-y-2">...</div>
+              <div className="lg:w-1/3 space-y-2">
+                <Card className="bg-white/5 backdrop-blur-md border border-white/10 shadow-lg">
+                  <CardHeader>
+                    <CardTitle>{selectedModelData.title}</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-300">{selectedModelData.description}</p>
+                  </CardContent>
+                </Card>
+              </div>
               <div className="lg:w-2/3 space-y-6">
-                <Card className="bg-white/5 backdrop-blur-md border border-white/10 shadow-lg">...</Card>
+                <Card className="bg-white/5 backdrop-blur-md border border-white/10 shadow-lg">
+                  <CardHeader>
+                    <CardTitle>Desempenho</CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-gray-400 text-sm">Dados de desempenho serão adicionados futuramente.</p>
+                  </CardContent>
+                </Card>
               </div>
             </div>
           </TabsContent>
 
           <TabsContent value="activity" className="space-y-6">
             <Card className="bg-white/5 backdrop-blur-md border border-white/10 shadow-lg">
-              <CardHeader>...</CardHeader>
+              <CardHeader>
+                <CardTitle>Atividades Recentes</CardTitle>
+              </CardHeader>
               <CardContent>
                 <div className="h-[500px] overflow-hidden">
                   <AnimatedList delay={2000}>
