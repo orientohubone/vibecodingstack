@@ -100,11 +100,76 @@ export const Hero = () => {
             </div>
             
             <div className="mb-6">
-              <img 
-                src="/logo.svg" 
-                alt="Vibe Stack Logo" 
-                className="h-24 md:h-32 mx-auto animate-pulse"
-              />
+              <div className="relative mx-auto w-fit">
+                <svg 
+                  width="200" 
+                  height="80" 
+                  viewBox="0 0 200 80" 
+                  className="h-20 md:h-28 w-auto animate-pulse"
+                >
+                  {/* Vibe Text */}
+                  <text 
+                    x="10" 
+                    y="35" 
+                    className="fill-pink-400 text-2xl md:text-3xl font-bold" 
+                    style={{ fontFamily: 'system-ui, sans-serif' }}
+                  >
+                    Vibe
+                  </text>
+                  
+                  {/* Geometric Shapes */}
+                  <polygon 
+                    points="0,40 30,40 40,60 10,60" 
+                    className="fill-gradient-to-r from-yellow-400 to-orange-500"
+                    fill="url(#grad1)"
+                  />
+                  <polygon 
+                    points="20,60 50,60 40,80 10,80" 
+                    className="fill-gradient-to-r from-purple-600 to-blue-600"
+                    fill="url(#grad2)"
+                  />
+                  <rect 
+                    x="70" 
+                    y="10" 
+                    width="15" 
+                    height="15" 
+                    className="fill-pink-500"
+                  />
+                  
+                  {/* Stack Text */}
+                  <text 
+                    x="75" 
+                    y="70" 
+                    className="fill-pink-400 text-xl md:text-2xl font-light" 
+                    style={{ fontFamily: 'system-ui, sans-serif' }}
+                  >
+                    stack
+                  </text>
+                  
+                  {/* Arrow */}
+                  <polygon 
+                    points="150,40 170,30 170,50" 
+                    className="fill-gradient-to-r from-purple-500 to-blue-500"
+                    fill="url(#grad3)"
+                  />
+                  
+                  {/* Gradients */}
+                  <defs>
+                    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#FCD34D" />
+                      <stop offset="100%" stopColor="#F97316" />
+                    </linearGradient>
+                    <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#9333EA" />
+                      <stop offset="100%" stopColor="#3B82F6" />
+                    </linearGradient>
+                    <linearGradient id="grad3" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#A855F7" />
+                      <stop offset="100%" stopColor="#3B82F6" />
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
             </div>
             
             <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
