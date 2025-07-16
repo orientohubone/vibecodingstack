@@ -4,7 +4,7 @@ import { Code, Database, Cloud, Zap, ChevronDown, Sparkles, Globe, Rocket } from
 export const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
-  const [activeCard, setActiveCard] = useState(null);
+  const [activeCard, setActiveCard] = useState<number | null>(null);
 
   useEffect(() => {
     setIsVisible(true);
