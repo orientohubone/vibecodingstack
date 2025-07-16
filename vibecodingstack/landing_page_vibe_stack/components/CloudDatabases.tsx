@@ -10,7 +10,6 @@ const databases = [
     icon: Database,
     color: "from-green-500 to-emerald-500",
     darkColor: "dark:from-green-600 dark:to-emerald-600",
-    logo: "🐘",
     features: ["Serverless", "Auto-scaling", "Branching"]
   },
   {
@@ -20,7 +19,6 @@ const databases = [
     icon: Server,
     color: "from-emerald-500 to-teal-500",
     darkColor: "dark:from-emerald-600 dark:to-teal-600",
-    logo: "⚡",
     features: ["PostgreSQL", "Auth", "Real-time"]
   },
   {
@@ -30,7 +28,6 @@ const databases = [
     icon: Cloud,
     color: "from-orange-500 to-red-500",
     darkColor: "dark:from-orange-600 dark:to-red-600",
-    logo: "🔥",
     features: ["Real-time", "Offline", "Scalable"]
   }
 ];
@@ -71,7 +68,6 @@ export const CloudDatabases: React.FC = () => {
                     <div className={`p-3 rounded-xl bg-gradient-to-br ${db.color} ${db.darkColor} text-white`}>
                       <db.icon className="w-6 h-6" />
                     </div>
-                    <div className="text-3xl">{db.logo}</div>
                   </div>
                   
                   <span className={`px-3 py-1 text-xs font-semibold rounded-full ${
