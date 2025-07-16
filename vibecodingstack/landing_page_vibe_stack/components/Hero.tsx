@@ -107,9 +107,9 @@ export const Hero = () => {
             </h1>
             
             <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
-              Plataforma completa para desenvolvimento moderno com ferramentas integradas, 
+              Onde inovação é colaborativa!
               <br className="hidden md:block" />
-              CI/CD automatizado e deploy simplificado
+              Uma plataforma para quem aprende, cria e transforma o futuro com tecnologia, criatividade e comunidade.
             </p>
           </div>
 
