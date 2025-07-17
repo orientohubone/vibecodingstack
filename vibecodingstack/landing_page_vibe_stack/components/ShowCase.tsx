@@ -54,21 +54,62 @@ function AnimatedCounter({
 }
 
 
-// Glowing card component
-function GlowingCard({ children, className = '', theme = 'dark' }) {
-  const cardRef = useRef(null);
+import React, { useState, useRef, useEffect } from "react";
+import { ExternalLink, Github, Star, Calendar, Users, Code, Globe, Zap, Eye, GitBranch, Activity } from "lucide-react";
+
+// Utility function for className merging
+function cn(...classes: (string | false | null | undefined)[]): string {
+  return classes.filter(Boolean).join(' ');
+}
+
+// Custom animated counter
+function AnimatedCounter({ value, duration = 2000 }: { value: number; duration?: number }) {
+  const [count, setCount] = useState(0);
+  
+  useEffect(() => {
+    let startTime: number | null = null;
+    const startValue = 0;
+    const endValue = value;
+    
+    const animate = (currentTime: number) => {
+      if (!startTime) startTime = currentTime;
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      
+      const currentCount = Math.floor(startValue + (endValue - startValue) * progress);
+      setCount(currentCount);
+      
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+    
+    requestAnimationFrame(animate);
+  }, [value, duration]);
+  
+  return <span>{count}</span>;
+}
+
+type GlowingCardProps = {
+  children: React.ReactNode;
+  className?: string;
+  theme?: 'light' | 'dark';
+};
+
+function GlowingCard({ children, className = '', theme = 'dark' }: GlowingCardProps) {
+  const cardRef = useRef<HTMLDivElement>(null);
   const [isHovered, setIsHovered] = useState(false);
   
   useEffect(() => {
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       if (!cardRef.current) return;
       
       const rect = cardRef.current.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
       
-      cardRef.current.style.setProperty('--mouse-x', `${x}px`);
-      cardRef.current.style.setProperty('--mouse-y', `${y}px`);
+      cardRef.current.style.setProperty('--mouse-x', \`\${x}px\`);
+      cardRef.current.style.setProperty('--mouse-y', \`\${y}px\`);
     };
     
     const card = cardRef.current;
