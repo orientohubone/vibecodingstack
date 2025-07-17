@@ -1,39 +1,58 @@
 import React, { useState, useRef, useEffect } from "react";
-import { ExternalLink, Github, Star, Calendar, Users, Code, Globe, Zap, Eye, GitBranch, Activity } from "lucide-react";
+import {
+  ExternalLink,
+  Github,
+  Star,
+  Calendar,
+  Users,
+  Code,
+  Globe,
+  Zap,
+  Eye,
+  GitBranch,
+  Activity,
+} from "lucide-react";
 
-// Utility function for className merging
+// Função utilitária para unir classes
 function cn(...classes: (string | false | null | undefined)[]): string {
-  return classes.filter(Boolean).join(' ');
+  return classes.filter(Boolean).join(" ");
 }
 
-
-// Custom animated counter
-function AnimatedCounter({ value, duration = 2000 }: { value: number; duration?: number }) {
+// Corrigido: Tipagem explícita no parâmetro 'currentTime'
+function AnimatedCounter({
+  value,
+  duration = 2000,
+}: {
+  value: number;
+  duration?: number;
+}) {
   const [count, setCount] = useState(0);
-  
+
   useEffect(() => {
-  let startTime: number | null = null;
-  const startValue = 0;
-  const endValue = value;
-    
-    const animate = (currentTime) => {
-      if (!startTime) startTime = currentTime;
+    let startTime: number | null = null;
+    const startValue = 0;
+    const endValue = value;
+
+    const animate = (currentTime: number) => {
+      if (startTime === null) startTime = currentTime;
       const elapsed = currentTime - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      
-      const currentCount = Math.floor(startValue + (endValue - startValue) * progress);
+      const currentCount = Math.floor(
+        startValue + (endValue - startValue) * progress
+      );
       setCount(currentCount);
-      
+
       if (progress < 1) {
         requestAnimationFrame(animate);
       }
     };
-    
+
     requestAnimationFrame(animate);
   }, [value, duration]);
-  
+
   return <span>{count}</span>;
 }
+
 
 // Glowing card component
 function GlowingCard({ children, className = '', theme = 'dark' }) {
