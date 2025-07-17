@@ -13,9 +13,9 @@ import {
   Activity,
 } from "lucide-react";
 
-// Função utilitária para unir classes
+// Utility function for className merging
 function cn(...classes: (string | false | null | undefined)[]): string {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(' ');
 }
 
 // Corrigido: Tipagem explícita no parâmetro 'currentTime'
@@ -51,11 +51,6 @@ function AnimatedCounter({
   }, [value, duration]);
 
   return <span>{count}</span>;
-}
-
-// Utility function for className merging
-function cn(...classes: (string | false | null | undefined)[]): string {
-  return classes.filter(Boolean).join(' ');
 }
 
 // Custom animated counter
