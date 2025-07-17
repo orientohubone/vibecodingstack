@@ -8,7 +8,7 @@ function cn(...classes: (string | false | null | undefined)[]): string {
 
 
 // Custom animated counter
-function AnimatedCounter({ value, duration = 2000 }) {
+function AnimatedCounter({ value, duration = 2000 }: { value: number; duration?: number }) {
   const [count, setCount] = useState(0);
   
   useEffect(() => {
