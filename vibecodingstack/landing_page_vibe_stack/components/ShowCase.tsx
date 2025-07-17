@@ -18,7 +18,7 @@ function cn(...classes: (string | false | null | undefined)[]): string {
   return classes.filter(Boolean).join(' ');
 }
 
-// Corrigido: Tipagem explícita no parâmetro 'currentTime'
+// Custom animated counter
 function AnimatedCounter({
   value,
   duration = 2000,
@@ -53,34 +53,6 @@ function AnimatedCounter({
   return <span>{count}</span>;
 }
 
-// Custom animated counter
-function AnimatedCounter({ value, duration = 2000 }: { value: number; duration?: number }) {
-  const [count, setCount] = useState(0);
-  
-  useEffect(() => {
-    let startTime: number | null = null;
-    const startValue = 0;
-    const endValue = value;
-    
-    const animate = (currentTime: number) => {
-      if (!startTime) startTime = currentTime;
-      const elapsed = currentTime - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-      
-      const currentCount = Math.floor(startValue + (endValue - startValue) * progress);
-      setCount(currentCount);
-      
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      }
-    };
-    
-    requestAnimationFrame(animate);
-  }, [value, duration]);
-  
-  return <span>{count}</span>;
-}
-
 type GlowingCardProps = {
   children: React.ReactNode;
   className?: string;
@@ -99,8 +71,8 @@ function GlowingCard({ children, className = '', theme = 'dark' }: GlowingCardPr
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
       
-      cardRef.current.style.setProperty('--mouse-x', \`\${x}px\`);
-      cardRef.current.style.setProperty('--mouse-y', \`\${y}px\`);
+      cardRef.current.style.setProperty('--mouse-x', `${x}px`);
+      cardRef.current.style.setProperty('--mouse-y', `${y}px`);
     };
     
     const card = cardRef.current;
@@ -151,11 +123,11 @@ function GlowingCard({ children, className = '', theme = 'dark' }: GlowingCardPr
 }
 
 // Project Card Component
-function ProjectCard({ project, theme = 'dark' }) {
+function ProjectCard({ project, theme = 'dark' }: { project: any; theme?: 'light' | 'dark' }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
   
-  const getStatusColor = (status) => {
+  const getStatusColor = (status: string) => {
     if (theme === 'light') {
       switch (status) {
         case 'completed': return 'bg-green-100 text-green-800 border-green-200';
@@ -291,12 +263,12 @@ function ProjectCard({ project, theme = 'dark' }) {
             {/* Technologies */}
             <div className="mb-4">
               <div className="flex flex-wrap gap-2">
-                {project.technologies.slice(0, isExpanded ? undefined : 6).map((tech, index) => (
+                {project.technologies.slice(0, isExpanded ? undefined : 6).map((tech: any, index: number) => (
                   <span
                     key={tech.name}
                     className={cn(
                       "px-2 py-1 rounded-md text-xs border font-medium opacity-0 animate-[fadeIn_0.4s_ease-out_forwards]",
-                      techColorMap[tech.name] || (theme === 'light' ? "bg-gray-100 text-gray-800 border-gray-200" : "bg-gray-500/20 text-gray-400 border-gray-500/30")
+                      techColorMap[tech.name as keyof typeof techColorMap] || (theme === 'light' ? "bg-gray-100 text-gray-800 border-gray-200" : "bg-gray-500/20 text-gray-400 border-gray-500/30")
                     )}
                     style={{ animationDelay: `${index * 0.05}s` }}
                   >
@@ -417,7 +389,17 @@ function ProjectCard({ project, theme = 'dark' }) {
 }
 
 // Main ProjectShowcase Component
-function ProjectShowcase({ projects = [], className, columns = 2, showFilters = true }) {
+function ProjectShowcase({ 
+  projects = [], 
+  className, 
+  columns = 2, 
+  showFilters = true 
+}: {
+  projects?: any[];
+  className?: string;
+  columns?: number;
+  showFilters?: boolean;
+}) {
   const [filteredProjects, setFilteredProjects] = useState(projects);
   const [selectedCategory, setSelectedCategory] = useState('all');
   
