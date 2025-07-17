@@ -2,9 +2,10 @@ import React, { useState, useRef, useEffect } from "react";
 import { ExternalLink, Github, Star, Calendar, Users, Code, Globe, Zap, Eye, GitBranch, Activity } from "lucide-react";
 
 // Utility function for className merging
-function cn(...classes) {
+function cn(...classes: (string | false | null | undefined)[]): string {
   return classes.filter(Boolean).join(' ');
 }
+
 
 // Custom animated counter
 function AnimatedCounter({ value, duration = 2000 }) {
