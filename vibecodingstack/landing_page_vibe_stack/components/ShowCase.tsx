@@ -407,7 +407,7 @@ function ProjectShowcase({
   const defaultProjects = [
     {
       id: "1",
-      title: "VibeCoding Stack Platform",
+      title: "Site + Plataforma VibeCoding Stack",
       description: "Plataforma colaborativa para desenvolvedores com stack moderno, integração com IAs e deploy automatizado. Inclui autenticação, banco de dados em tempo real e CI/CD.",
       image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=250&fit=crop",
       technologies: [
@@ -429,7 +429,7 @@ function ProjectShowcase({
     },
     {
       id: "2",
-      title: "AI Code Assistant",
+      title: "Ecossistema Orientohub",
       description: "Assistente de código com IA integrada usando Claude e GPT-4. Suporte a múltiplas linguagens, análise de código e sugestões inteligentes em tempo real.",
       image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=250&fit=crop",
       technologies: [
@@ -451,7 +451,7 @@ function ProjectShowcase({
     },
     {
       id: "3",
-      title: "Real-time Chat System",
+      title: "Plataforma B.leads",
       description: "Sistema de chat em tempo real com WebSocket, salas privadas, compartilhamento de código e integração com ferramentas de desenvolvimento.",
       image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=250&fit=crop",
       technologies: [
@@ -473,7 +473,7 @@ function ProjectShowcase({
     },
     {
       id: "4",
-      title: "Project Analytics Dashboard",
+      title: "Plataforma Humansys",
       description: "Dashboard avançado para análise de projetos com métricas em tempo real, visualizações interativas e relatórios automatizados.",
       image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop",
       technologies: [
