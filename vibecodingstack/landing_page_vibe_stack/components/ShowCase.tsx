@@ -12,9 +12,9 @@ function AnimatedCounter({ value, duration = 2000 }: { value: number; duration?:
   const [count, setCount] = useState(0);
   
   useEffect(() => {
-    let startTime = null;
-    const startValue = 0;
-    const endValue = value;
+  let startTime: number | null = null;
+  const startValue = 0;
+  const endValue = value;
     
     const animate = (currentTime) => {
       if (!startTime) startTime = currentTime;
