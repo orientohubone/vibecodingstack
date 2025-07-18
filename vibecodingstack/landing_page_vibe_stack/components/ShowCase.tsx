@@ -409,7 +409,7 @@ function ProjectShowcase({
       id: "1",
       title: "Site + Plataforma VibeCoding Stack",
       description: "Plataforma colaborativa para desenvolvedores com stack moderno, integração com IAs e deploy automatizado. Inclui autenticação, banco de dados em tempo real e CI/CD.",
-      image: "public/imagens/cardvibecoding.png",
+      image: "/cardvibecoding.png",
       technologies: [
         { name: "Next.js" },
         { name: "TypeScript" },
