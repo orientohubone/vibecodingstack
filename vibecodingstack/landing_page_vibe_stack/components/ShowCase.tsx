@@ -409,7 +409,7 @@ function ProjectShowcase({
       id: "1",
       title: "Site + Plataforma VibeCoding Stack",
       description: "Plataforma colaborativa para desenvolvedores com stack moderno, integração com IAs e deploy automatizado. Inclui autenticação, banco de dados em tempo real e CI/CD.",
-      image: "https://github.com/orientohubone/vibecodingstack/blob/cursor/continuar-desenvolvimento-da-landing-page-09c3/vibecodingstack/landing_page_vibe_stack/components/public/imagens/cardvibecoding.png",
+      image: "public/imagens/cardvibecoding.png",
       technologies: [
         { name: "Next.js" },
         { name: "TypeScript" },
