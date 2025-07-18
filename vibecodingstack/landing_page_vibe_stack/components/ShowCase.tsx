@@ -408,7 +408,7 @@ function ProjectShowcase({
     {
       id: "1",
       title: "Site + Plataforma VibeCoding Stack",
-      description: "Plataforma colaborativa para desenvolvedores com stack moderno, integração com IAs e deploy automatizado. Inclui autenticação, banco de dados em tempo real e CI/CD.",
+      description: "Plataforma para quem aprende, cria e transforma o futuro com tecnologia, criatividade e comunidade.",
       image: "/cardvibecoding.png",
       technologies: [
         { name: "Next.js" },
@@ -430,8 +430,8 @@ function ProjectShowcase({
     {
       id: "2",
       title: "Ecossistema Orientohub",
-      description: "Assistente de código com IA integrada usando Claude e GPT-4. Suporte a múltiplas linguagens, análise de código e sugestões inteligentes em tempo real.",
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=250&fit=crop",
+      description: "Plataforma imersiva e gamificada para construção de startups. Ideal para aceleradoras, incubadoras, fundadores e aspirantes.",
+      image: "/cardecossistemaoriento.png",
       technologies: [
         { name: "React" },
         { name: "Python" },
@@ -452,8 +452,8 @@ function ProjectShowcase({
     {
       id: "3",
       title: "Plataforma B.leads",
-      description: "Sistema de chat em tempo real com WebSocket, salas privadas, compartilhamento de código e integração com ferramentas de desenvolvimento.",
-      image: "https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=400&h=250&fit=crop",
+      description: "Sistema de gestão de leads com rotas inteligentes, Relatórios avançados,integração com google agenda",
+      image: "/gestaoleads.png",
       technologies: [
         { name: "Node.js" },
         { name: "Socket.io" },
@@ -474,8 +474,8 @@ function ProjectShowcase({
     {
       id: "4",
       title: "Plataforma Humansys",
-      description: "Dashboard avançado para análise de projetos com métricas em tempo real, visualizações interativas e relatórios automatizados.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=250&fit=crop",
+      description: "A Humansys é uma plataforma completa com IA preditiva, gamificação e PWA. Preveja turnover, engaje colaboradores e transforme seu RH.",
+      image: "/cardhumansys1.png",
       technologies: [
         { name: "Vue.js" },
         { name: "TypeScript" },
