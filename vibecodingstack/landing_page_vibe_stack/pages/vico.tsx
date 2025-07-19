@@ -52,12 +52,6 @@ const useTheme = () => {
   return { theme, toggleTheme };
 };
 
-export default function Vico() {
-  // Função para navegar para o agente
-  const handleVicoAgentClick = () => {
-    window.open('https://chatgpt.com/g/g-687af74f59908191b93f920b29e288e8-especialista-vico', '_blank');
-  };
-
 // Componente ThemeToggle
 const ThemeToggle = ({ theme, toggleTheme }: { theme: string; toggleTheme: () => void }) => (
   <motion.button
@@ -186,6 +180,11 @@ const VicoExpertSection = ({ className = "" }: { className?: string }) => {
     setIsVisible(true);
   }, []);
 
+  // Função para navegar para o agente
+  const handleVicoAgentClick = () => {
+    window.open('https://chatgpt.com/g/g-687af74f59908191b93f920b29e288e8-especialista-vico', '_blank');
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -212,7 +211,7 @@ const VicoExpertSection = ({ className = "" }: { className?: string }) => {
   const skills = [
     { icon: Code, label: "Desenvolvimento", color: "text-blue-600 dark:text-blue-400" },
     { icon: Bot, label: "IA & Machine Learning", color: "text-purple-600 dark:text-purple-400" },
-    { icon: Users, label: "Mentoria", color: "text-green-600 dark:text-green-400" },
+    { icon: Users, label: "Comunidade", color: "text-green-600 dark:text-green-400" },
     { icon: Zap, label: "Automação", color: "text-yellow-600 dark:text-yellow-400" },
   ];
 
@@ -328,8 +327,8 @@ const VicoExpertSection = ({ className = "" }: { className?: string }) => {
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 rounded-full bg-purple-500 mt-2 flex-shrink-0" />
                     <div>
-                      <h4 className="font-semibold mb-1">Mentoria Personalizada</h4>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">Orientação em carreira, projetos e crescimento profissional.</p>
+                      <h4 className="font-semibold mb-1">Monte o seu Stack</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">Com nosso agente você poderá montar seu stack da melhor maneira, use sua criatividade!</p>
                     </div>
                   </div>
                   
@@ -342,12 +341,11 @@ const VicoExpertSection = ({ className = "" }: { className?: string }) => {
                   </div>
                 </div>
 
-                // Botão modificado
                 <Button className="w-full group" size="lg" onClick={handleVicoAgentClick}>
                   <MessageCircle className="w-5 h-5 mr-2" />
                   Conversar com Vico
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                  </Button>
+                </Button>
               </CardContent>
             </Card>
 
@@ -416,6 +414,7 @@ const Footer = () => {
       <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-12 py-16">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          
           {/* Brand Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -434,14 +433,18 @@ const Footer = () => {
                 <p className="text-gray-400 text-sm">Desenvolvimento Moderno</p>
               </div>
             </div>
+            
             <p className="text-gray-300 leading-relaxed mb-6 max-w-md">
-              Stack completo para desenvolvimento moderno com ferramentas integradas, bancos de dados em nuvem e deploy automatizado.
+              Stack completo para desenvolvimento moderno com ferramentas integradas, 
+              bancos de dados em nuvem e deploy automatizado.
             </p>
+
             <div className="flex items-center gap-2 text-gray-300 mb-2">
               <Heart className="w-4 h-4 text-red-400" />
               <span className="text-sm">Feito no Brasil por</span>
               <span className="font-semibold text-white">orientohub</span>
             </div>
+            
             <div className="flex items-center gap-2 text-gray-400">
               <MapPin className="w-4 h-4" />
               <span className="text-sm">Pompeia, Brasil</span>
@@ -491,14 +494,13 @@ const Footer = () => {
                   orientohub@gmail.com
                 </a>
               </div>
+              
               <div className="flex items-center gap-3 mt-6">
                 {[
                   { icon: Github, href: "#", label: "GitHub" },
                   { icon: Twitter, href: "#", label: "Twitter" },
                   { icon: Linkedin, href: "#", label: "LinkedIn" },
-                ].map((social, idx) => {
-                  const Icon = social.icon;
-                  return (
+                ].map((social, idx) => (
                   <motion.a
                     key={social.label}
                     href={social.href}
@@ -509,10 +511,9 @@ const Footer = () => {
                     className="w-8 h-8 bg-gray-800 dark:bg-gray-700 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-gradient-to-r hover:from-purple-500 hover:to-cyan-500 transition-all duration-300"
                     aria-label={social.label}
                   >
-                    <Icon className="w-4 h-4" />
+                    <social.icon className="w-4 h-4" />
                   </motion.a>
-                  );
-                })}
+                ))}
               </div>
             </div>
           </motion.div>
@@ -534,10 +535,17 @@ const Footer = () => {
                 CNPJ: 48.809.603/0001-65
               </p>
             </div>
+
             <div className="flex items-center gap-6 text-sm">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">Privacidade</a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">Termos</a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">Cookies</a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
+                Privacidade
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
+                Termos
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
+                Cookies
+              </a>
             </div>
           </div>
         </motion.div>
@@ -550,8 +558,8 @@ const Footer = () => {
   );
 };
 
-export default function VicoPageWithFooter() 
-{
+// Componente principal que combina Vico + Footer
+export default function VicoPageWithFooter() {
   return (
     <div className="min-h-screen">
       <VicoExpertSection />
