@@ -1,5 +1,4 @@
 "use client";
-
 import React, { ReactNode, useState, useEffect, ButtonHTMLAttributes } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Bot, Code, Users, Zap, Moon, Sun, Github, Twitter, Linkedin, Mail, ArrowRight, Star, MessageCircle, Heart, MapPin } from 'lucide-react';
@@ -14,24 +13,20 @@ interface ThemeToggleProps {
   theme: string;
   toggleTheme: () => void;
 }
-
 interface CardProps {
   children: ReactNode;
   className?: string;
 }
-
 interface CardContentProps {
   children: ReactNode;
   className?: string;
 }
-
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
   variant?: VariantType;
   size?: SizeType;
   className?: string;
 }
-
 interface BadgeProps {
   children: ReactNode;
   variant?: BadgeVariantType;
@@ -41,25 +36,27 @@ interface BadgeProps {
 // Hook personalizado para gerenciar tema
 const useTheme = () => {
   const [theme, setTheme] = useState('light');
-
   useEffect(() => {
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     if (prefersDark) {
       setTheme('dark');
     }
   }, []);
-
   useEffect(() => {
     document.documentElement.classList.remove('light', 'dark');
     document.documentElement.classList.add(theme);
   }, [theme]);
-
   const toggleTheme = () => {
     setTheme(prev => prev === 'light' ? 'dark' : 'light');
   };
-
   return { theme, toggleTheme };
 };
+
+export default function Vico() {
+  // Função para navegar para o agente
+  const handleVicoAgentClick = () => {
+    window.open('https://chatgpt.com/g/g-687af74f59908191b93f920b29e288e8-especialista-vico', '_blank');
+  };
 
 // Componente ThemeToggle
 const ThemeToggle = ({ theme, toggleTheme }: { theme: string; toggleTheme: () => void }) => (
@@ -345,11 +342,12 @@ const VicoExpertSection = ({ className = "" }: { className?: string }) => {
                   </div>
                 </div>
 
-                <Button className="w-full group" size="lg">
+                // Botão modificado
+                <Button className="w-full group" size="lg" onClick={handleVicoAgentClick}>
                   <MessageCircle className="w-5 h-5 mr-2" />
                   Conversar com Vico
                   <ArrowRight className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" />
-                </Button>
+                  </Button>
               </CardContent>
             </Card>
 
