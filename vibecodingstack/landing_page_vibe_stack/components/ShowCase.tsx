@@ -349,8 +349,7 @@ function ProjectCard({ project, theme = 'dark' }: { project: any; theme?: 'light
                     target="_blank"
                     rel="noopener noreferrer"
                     className={cn(
-                      className={cn(
-                      "flex items-center gap-1.5 md:gap-2 px-2.5 md:px-3 py-1 md:py-1.5 rounded-md border transition-all text-xs md:text-sm hover:scale-105 active:scale-95",
+                    "flex items-center gap-1.5 md:gap-2 px-2.5 md:px-3 py-1 md:py-1.5 rounded-md border transition-all text-xs md:text-sm hover:scale-105 active:scale-95",
                       theme === 'light' 
                         ? "bg-blue-100 border-blue-200 text-blue-700 hover:text-blue-900 hover:border-blue-300" 
                         : "bg-blue-500/20 border-blue-500/30 text-blue-400 hover:text-blue-300 hover:border-blue-400/50"
