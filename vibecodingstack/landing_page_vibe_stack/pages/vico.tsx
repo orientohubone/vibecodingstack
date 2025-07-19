@@ -99,7 +99,7 @@ const Card = ({ children, className = "" }: { children: ReactNode; className?: s
   </div>
 );
 
-const CardContent = ({ children, className = "" }) => (
+const CardContent = ({ children, className = "" }: { children: ReactNode; className?: string }) => (
   <div className={`p-6 ${className}`}>{children}</div>
 );
 
