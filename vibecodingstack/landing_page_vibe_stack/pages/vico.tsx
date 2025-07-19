@@ -512,7 +512,7 @@ const Footer = () => {
                     <Icon className="w-4 h-4" />
                   </motion.a>
                   );
-                ))}
+                })}
               </div>
             </div>
           </motion.div>
