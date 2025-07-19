@@ -463,8 +463,8 @@ const Footer = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, delay: 0.2 + idx * 0.1 }}
                 >
-                  <a
-                    href="#"
+                  <a 
+                    href="#" 
                     className="text-gray-300 hover:text-white transition-colors duration-200 text-sm"
                   >
                     {link}
@@ -484,8 +484,8 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-gray-400" />
-                <a
-                  href="mailto:orientohub@gmail.com"
+                <a 
+                  href="mailto:orientohub@gmail.com" 
                   className="text-gray-300 hover:text-white transition-colors duration-200 text-sm"
                 >
                   orientohub@gmail.com
@@ -527,19 +527,14 @@ const Footer = () => {
               <p className="text-gray-400 text-sm">
                 © {currentYear} orientohub. Todos os direitos reservados.
               </p>
-              <p className="text-gray-500 text-xs mt-1">CNPJ: 48.809.603/0001-65</p>
+              <p className="text-gray-500 text-xs mt-1">
+                CNPJ: 48.809.603/0001-65
+              </p>
             </div>
-
             <div className="flex items-center gap-6 text-sm">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                Privacidade
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                Termos
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                Cookies
-              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">Privacidade</a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">Termos</a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">Cookies</a>
             </div>
           </div>
         </motion.div>
@@ -551,3 +546,12 @@ const Footer = () => {
     </footer>
   );
 };
+
+export default function VicoPageWithFooter() {
+  return (
+    <div className="min-h-screen">
+      <VicoExpertSection />
+      <Footer />
+    </div>
+  );
+}
