@@ -521,37 +521,39 @@ const Footer = () => {
           </motion.div>
         </div>
 
-        {/* Bottom Bar */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="pt-8 border-t border-gray-800 dark:border-gray-700"
-        >
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="text-center md:text-left">
-              <p className="text-gray-400 text-sm">
-                © {currentYear} orientohub. Todos os direitos reservados.
-              </p>
-              <p className="text-gray-500 text-xs mt-1">
-                CNPJ: 48.809.603/0001-65
-              </p>
-            </div>
-            
-            <div className="flex items-center gap-6 text-sm">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                Privacidade
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                Termos
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-                Cookies
-              </a>
-            </div>
+        const Footer = () => {
+  return (
+    <footer>
+      {/* Bottom Bar */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        className="pt-8 border-t border-gray-800 dark:border-gray-700"
+      >
+        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="text-center md:text-left">
+            <p className="text-gray-400 text-sm">
+              © {currentYear} orientohub. Todos os direitos reservados.
+            </p>
+            <p className="text-gray-500 text-xs mt-1">
+              CNPJ: 48.809.603/0001-65
+            </p>
           </div>
-        </motion.div>
-      </div>
+
+          <div className="flex items-center gap-6 text-sm">
+            <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
+              Privacidade
+            </a>
+            <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
+              Termos
+            </a>
+            <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
+              Cookies
+            </a>
+          </div>
+        </div>
+      </motion.div>
 
       {/* Decorative Elements */}
       <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-tl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
