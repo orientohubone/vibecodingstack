@@ -496,7 +496,9 @@ const Footer = () => {
                   { icon: Github, href: "#", label: "GitHub" },
                   { icon: Twitter, href: "#", label: "Twitter" },
                   { icon: Linkedin, href: "#", label: "LinkedIn" },
-                ].map((social, idx) => (
+                ].map((social, idx) => {
+                  const Icon = social.icon;
+                  return (
                   <motion.a
                     key={social.label}
                     href={social.href}
@@ -507,8 +509,9 @@ const Footer = () => {
                     className="w-8 h-8 bg-gray-800 dark:bg-gray-700 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-gradient-to-r hover:from-purple-500 hover:to-cyan-500 transition-all duration-300"
                     aria-label={social.label}
                   >
-                    <social.icon className="w-4 h-4" />
+                    <Icon className="w-4 h-4" />
                   </motion.a>
+                  );
                 ))}
               </div>
             </div>
