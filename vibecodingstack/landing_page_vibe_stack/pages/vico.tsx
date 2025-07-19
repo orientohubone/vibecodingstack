@@ -547,7 +547,8 @@ const Footer = () => {
   );
 };
 
-export default function VicoPageWithFooter() {
+export default function VicoPageWithFooter() 
+{
   return (
     <div className="min-h-screen">
       <VicoExpertSection />
