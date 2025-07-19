@@ -52,6 +52,19 @@ const useTheme = () => {
   return { theme, toggleTheme };
 };
 
+// Componente HomeButton
+const HomeButton = () => (
+  <motion.button
+    onClick={() => window.location.href = '/'}
+    className="fixed top-6 left-6 z-50 p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300 group"
+    whileHover={{ scale: 1.05 }}
+    whileTap={{ scale: 0.95 }}
+    aria-label="Voltar à página inicial"
+  >
+    <Home className="w-5 h-5 text-gray-700 dark:text-gray-300 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors duration-300" />
+  </motion.button>
+);
+
 // Componente ThemeToggle
 const ThemeToggle = ({ theme, toggleTheme }: { theme: string; toggleTheme: () => void }) => (
   <motion.button
@@ -211,7 +224,7 @@ const VicoExpertSection = ({ className = "" }: { className?: string }) => {
   const skills = [
     { icon: Code, label: "Desenvolvimento", color: "text-blue-600 dark:text-blue-400" },
     { icon: Bot, label: "IA & Machine Learning", color: "text-purple-600 dark:text-purple-400" },
-    { icon: Users, label: "Comunidade", color: "text-green-600 dark:text-green-400" },
+    { icon: Users, label: "Mentoria", color: "text-green-600 dark:text-green-400" },
     { icon: Zap, label: "Automação", color: "text-yellow-600 dark:text-yellow-400" },
   ];
 
@@ -225,6 +238,7 @@ const VicoExpertSection = ({ className = "" }: { className?: string }) => {
   return (
     <div className={`min-h-screen bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 relative overflow-hidden ${className}`}>
       <FloatingParticles />
+      <HomeButton />
       <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
       
       <motion.div
@@ -327,8 +341,8 @@ const VicoExpertSection = ({ className = "" }: { className?: string }) => {
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 rounded-full bg-purple-500 mt-2 flex-shrink-0" />
                     <div>
-                      <h4 className="font-semibold mb-1">Monte o seu Stack</h4>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">Com nosso agente você poderá montar seu stack da melhor maneira, use sua criatividade!</p>
+                      <h4 className="font-semibold mb-1">Mentoria Personalizada</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">Orientação em carreira, projetos e crescimento profissional.</p>
                     </div>
                   </div>
                   
