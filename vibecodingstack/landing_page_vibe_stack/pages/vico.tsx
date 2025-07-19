@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React, { ReactNode, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Bot, Code, Users, Zap, Moon, Sun, Github, Twitter, Linkedin, Mail, ArrowRight, Star, MessageCircle, Heart, MapPin } from 'lucide-react';
 
@@ -93,7 +93,7 @@ const FloatingParticles = () => {
 };
 
 // Componente Card personalizado
-const Card = ({ children, className = "" }) => (
+const Card = ({ children, className = "" }: { children: ReactNode; className?: string }) => (
   <div className={`bg-white dark:bg-gray-800 rounded-lg shadow-lg border border-gray-200 dark:border-gray-700 ${className}`}>
     {children}
   </div>
