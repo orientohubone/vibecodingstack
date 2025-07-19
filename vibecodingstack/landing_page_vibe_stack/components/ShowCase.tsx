@@ -440,7 +440,7 @@ function ProjectShowcase({
         { name: "Docker" }
       ],
       githubUrl: "https://github.com/vibecodingstack/ai-assistant",
-      liveUrl: "https://ai-assistant-demo.vibecodingstack.com",
+      liveUrl: "https://ecossistemaorientohub.netlify.app/",
       stars: 189,
       category: "AI/ML",
       status: "in-progress",
@@ -484,7 +484,7 @@ function ProjectShowcase({
         { name: "Docker" }
       ],
       githubUrl: "https://github.com/vibecodingstack/analytics",
-      liveUrl: "https://analytics.vibecodingstack.com",
+      liveUrl: "https://humansys.com.br/",
       stars: 203,
       category: "Data Science",
       status: "planning",
@@ -522,7 +522,7 @@ function ProjectShowcase({
         {/* Header */}
         <div className="text-center mb-12 opacity-0 animate-[fadeInUp_0.6s_ease-out_forwards]">
           <h2 className="text-4xl font-bold text-white mb-4">
-            Featured Projects
+            Projetos em Destaque
           </h2>
           <p className="text-xl text-gray-400 max-w-2xl mx-auto">
             Explore nossos projetos desenvolvidos com tecnologias modernas e stack colaborativo
