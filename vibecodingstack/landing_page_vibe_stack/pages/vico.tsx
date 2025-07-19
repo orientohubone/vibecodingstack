@@ -28,7 +28,7 @@ const useTheme = () => {
 };
 
 // Componente ThemeToggle
-const ThemeToggle = ({ theme, toggleTheme }) => (
+const ThemeToggle = ({ theme, toggleTheme }: { theme: string; toggleTheme: () => void }) => (
   <motion.button
     onClick={toggleTheme}
     className="fixed top-6 right-6 z-50 p-3 rounded-full bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 shadow-lg hover:shadow-xl transition-all duration-300"
