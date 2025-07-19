@@ -129,6 +129,14 @@ export const Hero = () => {
                 <span className="font-semibold">Explorar Stack</span>
               </div>
             </button>
+
+            <button className="group relative px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 text-white rounded-2xl shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300 overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="relative flex items-center gap-3">
+                <Sparkles className="w-5 h-5 group-hover:rotate-12 transition-transform duration-300" />
+                <span className="font-semibold">AGENTE VICO.IA</span>
+              </div>
+            </button>
           </div>
 
           {/* Tech Stack Cards */}
