@@ -7,6 +7,7 @@ import { Bot, Code, Users, Zap, Moon, Sun, Github, Twitter, Linkedin, Mail, Arro
 // TYPES VICO IA
 type VariantType = "default" | "primary" | "secondary" | "outline";
 type SizeType = "default" | "sm" | "lg";
+type BadgeVariantType = "default" | "secondary" | "outline";
 
 // INTERFACES VICO IA
 interface ThemeToggleProps {
@@ -26,8 +27,14 @@ interface CardContentProps {
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  variant?: VariantType;  // ← mudança aqui
-  size?: SizeType;        // ← mudança aqui
+  variant?: VariantType;
+  size?: SizeType;
+  className?: string;
+}
+
+interface BadgeProps {
+  children: ReactNode;
+  variant?: BadgeVariantType;
   className?: string;
 }
 
@@ -159,8 +166,8 @@ const Button = ({ children, variant = "default", size = "default", className = "
 };
 
 // Componente Badge personalizado
-const Badge = ({ children, variant = "default", className = "" }) => {
-  const variants = {
+const Badge = ({ children, variant = "default", className = "" }: BadgeProps) => {
+  const variants: Record<BadgeVariantType, string> = {
     default: "bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200",
     secondary: "bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-200",
     outline: "border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-200",
@@ -174,7 +181,7 @@ const Badge = ({ children, variant = "default", className = "" }) => {
 };
 
 // Seção Vico Expert
-const VicoExpertSection = ({ className = "" }) => {
+const VicoExpertSection = ({ className = "" }: { className?: string }) => {
   const { theme, toggleTheme } = useTheme();
   const [isVisible, setIsVisible] = useState(false);
 
