@@ -224,7 +224,7 @@ const VicoExpertSection = ({ className = "" }: { className?: string }) => {
   const skills = [
     { icon: Code, label: "Desenvolvimento", color: "text-blue-600 dark:text-blue-400" },
     { icon: Bot, label: "IA & Machine Learning", color: "text-purple-600 dark:text-purple-400" },
-    { icon: Users, label: "Mentoria", color: "text-green-600 dark:text-green-400" },
+    { icon: Users, label: "Comunidade", color: "text-green-600 dark:text-green-400" },
     { icon: Zap, label: "Automação", color: "text-yellow-600 dark:text-yellow-400" },
   ];
 
@@ -341,8 +341,8 @@ const VicoExpertSection = ({ className = "" }: { className?: string }) => {
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 rounded-full bg-purple-500 mt-2 flex-shrink-0" />
                     <div>
-                      <h4 className="font-semibold mb-1">Mentoria Personalizada</h4>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">Orientação em carreira, projetos e crescimento profissional.</p>
+                      <h4 className="font-semibold mb-1">Monte seu stack</h4>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">Explore a Vibecoding e use a criatividade.</p>
                     </div>
                   </div>
                   
