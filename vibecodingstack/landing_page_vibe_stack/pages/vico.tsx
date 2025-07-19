@@ -1,8 +1,31 @@
 "use client";
 
-import React, { ReactNode, useState, useEffect } from 'react';
+import React, { ReactNode, useState, useEffect, ButtonHTMLAttributes } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Bot, Code, Users, Zap, Moon, Sun, Github, Twitter, Linkedin, Mail, ArrowRight, Star, MessageCircle, Heart, MapPin } from 'lucide-react';
+
+// INTERFACES VICO IA
+interface ThemeToggleProps {
+  theme: string;
+  toggleTheme: () => void;
+}
+
+interface CardProps {
+  children: ReactNode;
+  className?: string;
+}
+
+interface CardContentProps {
+  children: ReactNode;
+  className?: string;
+}
+
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  children: ReactNode;
+  variant?: "default" | "primary" | "secondary" | "outline";
+  size?: "default" | "sm" | "lg";
+  className?: string;
+}
 
 // Hook personalizado para gerenciar tema
 const useTheme = () => {
