@@ -1,7 +1,7 @@
 "use client";
 import React, { ReactNode, useState, useEffect, ButtonHTMLAttributes } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Bot, Code, Users, Zap, Moon, Sun, Github, Twitter, Linkedin, Mail, ArrowRight, Star, MessageCircle, Heart, MapPin } from 'lucide-react';
+import { Bot, Code, Users, Zap, Moon, Sun, Github, Twitter, Linkedin, Mail, ArrowRight, Star, MessageCircle, Heart, MapPin, Home } from 'lucide-react';
 
 // TYPES VICO IA
 type VariantType = "default" | "primary" | "secondary" | "outline";
