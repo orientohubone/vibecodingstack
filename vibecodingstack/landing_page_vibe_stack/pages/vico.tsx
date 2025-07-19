@@ -4,6 +4,10 @@ import React, { ReactNode, useState, useEffect, ButtonHTMLAttributes } from 'rea
 import { motion, AnimatePresence } from 'framer-motion';
 import { Bot, Code, Users, Zap, Moon, Sun, Github, Twitter, Linkedin, Mail, ArrowRight, Star, MessageCircle, Heart, MapPin } from 'lucide-react';
 
+// TYPES VICO IA
+type VariantType = "default" | "primary" | "secondary" | "outline";
+type SizeType = "default" | "sm" | "lg";
+
 // INTERFACES VICO IA
 interface ThemeToggleProps {
   theme: string;
@@ -22,8 +26,8 @@ interface CardContentProps {
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   children: ReactNode;
-  variant?: "default" | "primary" | "secondary" | "outline";
-  size?: "default" | "sm" | "lg";
+  variant?: VariantType;  // ← mudança aqui
+  size?: SizeType;        // ← mudança aqui
   className?: string;
 }
 
@@ -130,18 +134,22 @@ const CardContent = ({ children, className = "" }: { children: ReactNode; classN
 const Button = ({ children, variant = "default", size = "default", className = "", ...props }: ButtonProps) => {
   const baseClasses = "inline-flex items-center justify-center rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2";
   
-  const variants = {
-    default: "bg-purple-600 hover:bg-purple-700 text-white focus:ring-purple-500",
-    outline: "border border-gray-300 dark:border-gray-600 bg-transparent hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-700 dark:text-gray-200 focus:ring-purple-500",
+  // Tipagem explícita com Record
+  const variants: Record<VariantType, string> = {
+    default: "bg-gray-200 dark:bg-gray-700 text-gray-900 dark:text-white hover:bg-gray-300 dark:hover:bg-gray-600",
+    primary: "bg-blue-600 text-white hover:bg-blue-700 focus:ring-blue-500",
+    secondary: "bg-gray-600 text-white hover:bg-gray-700 focus:ring-gray-500",
+    outline: "border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800"
   };
-  
-  const sizes = {
+
+  const sizes: Record<SizeType, string> = {
     default: "px-4 py-2 text-sm",
-    lg: "px-6 py-3 text-base",
+    sm: "px-3 py-1.5 text-xs",
+    lg: "px-6 py-3 text-base"
   };
-  
+
   return (
-    <button 
+    <button
       className={`${baseClasses} ${variants[variant]} ${sizes[size]} ${className}`}
       {...props}
     >
