@@ -416,7 +416,6 @@ const Footer = () => {
       <div className="relative z-10 max-w-6xl mx-auto px-4 md:px-12 py-16">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          
           {/* Brand Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -435,18 +434,14 @@ const Footer = () => {
                 <p className="text-gray-400 text-sm">Desenvolvimento Moderno</p>
               </div>
             </div>
-            
             <p className="text-gray-300 leading-relaxed mb-6 max-w-md">
-              Stack completo para desenvolvimento moderno com ferramentas integradas, 
-              bancos de dados em nuvem e deploy automatizado.
+              Stack completo para desenvolvimento moderno com ferramentas integradas, bancos de dados em nuvem e deploy automatizado.
             </p>
-
             <div className="flex items-center gap-2 text-gray-300 mb-2">
               <Heart className="w-4 h-4 text-red-400" />
               <span className="text-sm">Feito no Brasil por</span>
               <span className="font-semibold text-white">orientohub</span>
             </div>
-            
             <div className="flex items-center gap-2 text-gray-400">
               <MapPin className="w-4 h-4" />
               <span className="text-sm">Pompeia, Brasil</span>
@@ -468,8 +463,8 @@ const Footer = () => {
                   whileInView={{ opacity: 1, x: 0 }}
                   transition={{ duration: 0.4, delay: 0.2 + idx * 0.1 }}
                 >
-                  <a 
-                    href="#" 
+                  <a
+                    href="#"
                     className="text-gray-300 hover:text-white transition-colors duration-200 text-sm"
                   >
                     {link}
@@ -489,14 +484,13 @@ const Footer = () => {
             <div className="space-y-3">
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-gray-400" />
-                <a 
-                  href="mailto:orientohub@gmail.com" 
+                <a
+                  href="mailto:orientohub@gmail.com"
                   className="text-gray-300 hover:text-white transition-colors duration-200 text-sm"
                 >
                   orientohub@gmail.com
                 </a>
               </div>
-              
               <div className="flex items-center gap-3 mt-6">
                 {[
                   { icon: Github, href: "#", label: "GitHub" },
@@ -521,53 +515,39 @@ const Footer = () => {
           </motion.div>
         </div>
 
-        const Footer = () => {
-  return (
-    <footer>
-      {/* Bottom Bar */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6, delay: 0.4 }}
-        className="pt-8 border-t border-gray-800 dark:border-gray-700"
-      >
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-          <div className="text-center md:text-left">
-            <p className="text-gray-400 text-sm">
-              © {currentYear} orientohub. Todos os direitos reservados.
-            </p>
-            <p className="text-gray-500 text-xs mt-1">
-              CNPJ: 48.809.603/0001-65
-            </p>
-          </div>
+        {/* Bottom Bar */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="pt-8 border-t border-gray-800 dark:border-gray-700"
+        >
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div className="text-center md:text-left">
+              <p className="text-gray-400 text-sm">
+                © {currentYear} orientohub. Todos os direitos reservados.
+              </p>
+              <p className="text-gray-500 text-xs mt-1">CNPJ: 48.809.603/0001-65</p>
+            </div>
 
-          <div className="flex items-center gap-6 text-sm">
-            <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-              Privacidade
-            </a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-              Termos
-            </a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
-              Cookies
-            </a>
+            <div className="flex items-center gap-6 text-sm">
+              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
+                Privacidade
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
+                Termos
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white transition-colors duration-200">
+                Cookies
+              </a>
+            </div>
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
 
-      {/* Decorative Elements */}
-      <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-tl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
-      <div className="absolute top-0 left-0 w-48 h-48 bg-gradient-to-br from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
+        {/* Decorative Elements */}
+        <div className="absolute bottom-0 right-0 w-64 h-64 bg-gradient-to-tl from-purple-500/10 to-transparent rounded-full blur-3xl"></div>
+        <div className="absolute top-0 left-0 w-48 h-48 bg-gradient-to-br from-cyan-500/10 to-transparent rounded-full blur-3xl"></div>
+      </div>
     </footer>
   );
 };
-
-// Componente principal que combina Vico + Footer
-export default function VicoPageWithFooter() {
-  return (
-    <div className="min-h-screen">
-      <VicoExpertSection />
-      <Footer />
-    </div>
-  );
-}
