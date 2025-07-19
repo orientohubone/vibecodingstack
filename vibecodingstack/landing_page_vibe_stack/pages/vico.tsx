@@ -104,7 +104,7 @@ const CardContent = ({ children, className = "" }: { children: ReactNode; classN
 );
 
 // Componente Button personalizado
-const Button = ({ children, variant = "default", size = "default", className = "", ...props }) => {
+const Button = ({ children, variant = "default", size = "default", className = "", ...props }: ButtonProps) => {
   const baseClasses = "inline-flex items-center justify-center rounded-lg font-medium transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2";
   
   const variants = {
