@@ -192,15 +192,15 @@ function ProjectCard({ project, theme = 'dark' }: { project: any; theme?: 'light
       onMouseLeave={() => setIsHovered(false)}
     >
       <GlowingCard className="h-full" theme={theme}>
-        <div className="p-6 h-full flex">
+        <div className="p-4 md:p-6 h-full flex flex-col md:flex-row">
           {/* Image Section */}
           {project.image && (
-            <div className="flex-shrink-0 w-48 mr-6">
-              <div className="relative overflow-hidden rounded-lg group h-full">
+            <div className="flex-shrink-0 w-full md:w-48 mb-4 md:mb-0 md:mr-6">
+              <div className="relative overflow-hidden rounded-lg group h-48 md:h-full">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover min-h-[200px] transition-transform duration-300 group-hover:scale-105"
+                  className="w-full h-full object-cover min-h-[180px] md:min-h-[200px] transition-transform duration-300 group-hover:scale-105"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 <div className="absolute top-3 right-3 flex gap-2">
@@ -230,10 +230,10 @@ function ProjectCard({ project, theme = 'dark' }: { project: any; theme?: 'light
             {/* Header */}
             <div className="flex items-start justify-between mb-4">
               <div className="flex-1">
-                <h3 className={cn("text-xl font-bold mb-2 line-clamp-2", theme === 'light' ? 'text-gray-900' : 'text-white')}>
+                <h3 className={cn("text-lg md:text-xl font-bold mb-2 line-clamp-3 md:line-clamp-2", theme === 'light' ? 'text-gray-900' : 'text-white')}>
                   {project.title}
                 </h3>
-                <div className="flex items-center gap-3 text-sm">
+                <div className="flex items-center gap-2 md:gap-3 text-xs md:text-sm flex-wrap">
                   {project.category && (
                     <span className={cn("px-2 py-1 rounded-md border", theme === 'light' ? 'bg-purple-100 text-purple-800 border-purple-200' : 'bg-purple-500/20 text-purple-400 border-purple-500/30')}>
                       {project.category}
@@ -256,18 +256,18 @@ function ProjectCard({ project, theme = 'dark' }: { project: any; theme?: 'light
             </div>
             
             {/* Description */}
-            <p className={cn("text-sm leading-relaxed mb-4 flex-1", theme === 'light' ? 'text-gray-700' : 'text-gray-300')}>
+            <p className={cn("text-xs md:text-sm leading-relaxed mb-4 flex-1", theme === 'light' ? 'text-gray-700' : 'text-gray-300')}>
               {project.description}
             </p>
             
             {/* Technologies */}
             <div className="mb-4">
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-1.5 md:gap-2">
                 {project.technologies.slice(0, isExpanded ? undefined : 6).map((tech: any, index: number) => (
                   <span
                     key={tech.name}
                     className={cn(
-                      "px-2 py-1 rounded-md text-xs border font-medium opacity-0 animate-[fadeIn_0.4s_ease-out_forwards]",
+                      "px-1.5 md:px-2 py-0.5 md:py-1 rounded-md text-xs border font-medium opacity-0 animate-[fadeIn_0.4s_ease-out_forwards]",
                       techColorMap[tech.name as keyof typeof techColorMap] || (theme === 'light' ? "bg-gray-100 text-gray-800 border-gray-200" : "bg-gray-500/20 text-gray-400 border-gray-500/30")
                     )}
                     style={{ animationDelay: `${index * 0.05}s` }}
@@ -279,7 +279,7 @@ function ProjectCard({ project, theme = 'dark' }: { project: any; theme?: 'light
                   <button
                     onClick={() => setIsExpanded(true)}
                     className={cn(
-                      "px-2 py-1 rounded-md text-xs border transition-colors hover:scale-105",
+                      "px-1.5 md:px-2 py-0.5 md:py-1 rounded-md text-xs border transition-colors hover:scale-105",
                       theme === 'light' 
                         ? "border-gray-300 text-gray-600 hover:text-gray-900 hover:border-gray-400" 
                         : "border-gray-500/30 text-gray-400 hover:text-white hover:border-gray-400/50"
@@ -295,7 +295,7 @@ function ProjectCard({ project, theme = 'dark' }: { project: any; theme?: 'light
             {isExpanded && (
               <div className="space-y-4 mb-4 animate-[fadeIn_0.3s_ease-out]">
                 {/* Project metadata */}
-                <div className={cn("grid grid-cols-2 gap-4 text-sm", theme === 'light' ? 'text-gray-600' : 'text-gray-400')}>
+                <div className={cn("grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4 text-xs md:text-sm", theme === 'light' ? 'text-gray-600' : 'text-gray-400')}>
                   {project.createdAt && (
                     <div className="flex items-center gap-2">
                       <Calendar className="w-4 h-4" />
@@ -325,8 +325,8 @@ function ProjectCard({ project, theme = 'dark' }: { project: any; theme?: 'light
             )}
             
             {/* Footer */}
-            <div className="flex items-center justify-between mt-auto">
-              <div className="flex gap-2">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mt-auto gap-3 sm:gap-0">
+              <div className="flex gap-2 flex-wrap">
                 {project.githubUrl && (
                   <a
                     href={project.githubUrl}
@@ -339,7 +339,7 @@ function ProjectCard({ project, theme = 'dark' }: { project: any; theme?: 'light
                         : "bg-gray-800/50 border-gray-700/50 text-gray-300 hover:text-white hover:border-gray-600/50"
                     )}
                   >
-                    <Github className="w-4 h-4" />
+                    <Github className="w-3.5 md:w-4 h-3.5 md:h-4" />
                     Code
                   </a>
                 )}
@@ -349,13 +349,14 @@ function ProjectCard({ project, theme = 'dark' }: { project: any; theme?: 'light
                     target="_blank"
                     rel="noopener noreferrer"
                     className={cn(
-                      "flex items-center gap-2 px-3 py-1.5 rounded-md border transition-all text-sm hover:scale-105 active:scale-95",
+                      className={cn(
+                      "flex items-center gap-1.5 md:gap-2 px-2.5 md:px-3 py-1 md:py-1.5 rounded-md border transition-all text-xs md:text-sm hover:scale-105 active:scale-95",
                       theme === 'light' 
                         ? "bg-blue-100 border-blue-200 text-blue-700 hover:text-blue-900 hover:border-blue-300" 
                         : "bg-blue-500/20 border-blue-500/30 text-blue-400 hover:text-blue-300 hover:border-blue-400/50"
                     )}
                   >
-                    <Globe className="w-4 h-4" />
+                    <Globe className="w-3.5 md:w-4 h-3.5 md:h-4" />
                     Live
                   </a>
                 )}
@@ -364,7 +365,7 @@ function ProjectCard({ project, theme = 'dark' }: { project: any; theme?: 'light
               <button
                 onClick={() => setIsExpanded(!isExpanded)}
                 className={cn(
-                  "flex items-center gap-1 text-sm transition-all hover:scale-105",
+                  "flex items-center gap-1 text-xs md:text-sm transition-all hover:scale-105 mt-2 sm:mt-0",
                   theme === 'light' 
                     ? "text-gray-600 hover:text-gray-900" 
                     : "text-gray-400 hover:text-white"
@@ -518,19 +519,19 @@ function ProjectShowcase({
   
   return (
     <div className={cn("w-full min-h-screen bg-gray-950", className)}>
-      <div className="container mx-auto px-4 py-12">
+     <div className="container mx-auto px-3 md:px-4 py-8 md:py-12">
         {/* Header */}
         <div className="text-center mb-12 opacity-0 animate-[fadeInUp_0.6s_ease-out_forwards]">
-          <h2 className="text-4xl font-bold text-white mb-4">
+          <h2 className="text-2xl md:text-4xl font-bold text-white mb-4">
             Projetos em Destaque
           </h2>
-          <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          <p className="text-base md:text-xl text-gray-400 max-w-2xl mx-auto">
             Explore nossos projetos desenvolvidos com tecnologias modernas e stack colaborativo
           </p>
         </div>
         
         {/* Stats */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12 opacity-0 animate-[fadeInUp_0.6s_ease-out_0.2s_forwards]">
+        <div className="grid grid-cols-2 gap-3 md:gap-4 mb-8 md:mb-12 opacity-0 animate-[fadeInUp_0.6s_ease-out_0.2s_forwards]">
           {[
             { label: 'Projetos Ativos', value: filteredProjects.length, icon: Activity },
             { label: 'Total Stars', value: filteredProjects.reduce((acc, p) => acc + (p.stars || 0), 0), icon: Star },
@@ -538,12 +539,12 @@ function ProjectShowcase({
             { label: 'Total Views', value: filteredProjects.reduce((acc, p) => acc + (p.views || 0), 0), icon: Eye },
           ].map((stat, index) => (
             <div key={stat.label} className="text-center">
-              <div className="p-4 rounded-lg bg-gray-900/50 border border-gray-800/50 hover:bg-gray-800/50 transition-all duration-300 hover:scale-105">
+              <div className="p-3 md:p-4 rounded-lg bg-gray-900/50 border border-gray-800/50 hover:bg-gray-800/50 transition-all duration-300 hover:scale-105">
                 <stat.icon className="w-6 h-6 text-blue-400 mx-auto mb-2" />
-                <div className="text-2xl font-bold text-white">
+                <div className="text-xl md:text-2xl font-bold text-white">
                   <AnimatedCounter value={stat.value} />
                 </div>
-                <div className="text-sm text-gray-400">{stat.label}</div>
+                <div className="text-xs md:text-sm text-gray-400">{stat.label}</div>
               </div>
             </div>
           ))}
@@ -551,13 +552,13 @@ function ProjectShowcase({
         
         {/* Filters */}
         {showFilters && (
-          <div className="flex flex-wrap justify-center gap-2 mb-8 opacity-0 animate-[fadeIn_0.6s_ease-out_0.3s_forwards]">
+          <div className="flex flex-wrap justify-center gap-2 mb-6 md:mb-8 px-2 opacity-0 animate-[fadeIn_0.6s_ease-out_0.3s_forwards]">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
                 className={cn(
-                  "px-4 py-2 rounded-lg border transition-all duration-200 capitalize hover:scale-105",
+                  "px-3 md:px-4 py-1.5 md:py-2 text-sm md:text-base rounded-lg border transition-all duration-200 capitalize hover:scale-105",
                   selectedCategory === category
                     ? "bg-blue-500/20 text-blue-400 border-blue-500/30"
                     : "bg-gray-800/50 text-gray-400 border-gray-700/50 hover:text-white hover:border-gray-600/50"
@@ -570,7 +571,7 @@ function ProjectShowcase({
         )}
         
         {/* Projects Grid */}
-        <div className={cn("grid gap-6 opacity-0 animate-[fadeIn_0.6s_ease-out_0.4s_forwards]", getGridCols())}>
+        <div className={cn("grid gap-4 md:gap-6 opacity-0 animate-[fadeIn_0.6s_ease-out_0.4s_forwards]", getGridCols())}>
           {filteredProjects.map((project, index) => (
             <div
               key={project.id}
@@ -582,8 +583,8 @@ function ProjectShowcase({
         </div>
         
         {filteredProjects.length === 0 && (
-          <div className="text-center py-12 opacity-0 animate-[fadeIn_0.6s_ease-out_forwards]">
-            <p className="text-gray-400">Nenhum projeto encontrado para a categoria selecionada.</p>
+          <div className="text-center py-8 md:py-12 opacity-0 animate-[fadeIn_0.6s_ease-out_forwards] px-4">
+            <p className="text-sm md:text-base text-gray-400">Nenhum projeto encontrado para a categoria selecionada.</p>
           </div>
         )}
       </div>
