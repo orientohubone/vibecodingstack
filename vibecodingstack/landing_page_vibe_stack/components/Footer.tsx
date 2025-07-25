@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { Heart, MapPin, Mail, Github, Twitter, Linkedin } from "lucide-react";
+import { Heart, MapPin, Mail, Github, Twitter, Linkedin, MessageCircle } from "lucide-react";
 
 export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -95,21 +95,43 @@ export const Footer: React.FC = () => {
                   orientohub@gmail.com
                 </a>
               </div>
+
+              {/* WhatsApp Community Link */}
+              <div className="flex items-center gap-3">
+                <MessageCircle className="w-4 h-4 text-green-400" />
+                <a 
+                  href="https://chat.whatsapp.com/CF2pLdoltqD2smaEYWCk4u" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-300 hover:text-green-400 transition-colors duration-200 text-sm"
+                >
+                  Comunidade Vibe Coding
+                </a>
+              </div>
               
               <div className="flex items-center gap-3 mt-6">
                 {[
-                  { icon: Github, href: "#", label: "GitHub" },
-                  { icon: Twitter, href: "#", label: "Twitter" },
-                  { icon: Linkedin, href: "#", label: "LinkedIn" },
+                  { icon: Github, href: "#", label: "GitHub", color: "hover:from-gray-600 hover:to-gray-700" },
+                  { icon: Twitter, href: "#", label: "Twitter", color: "hover:from-blue-500 hover:to-blue-600" },
+                  { icon: Linkedin, href: "#", label: "LinkedIn", color: "hover:from-blue-600 hover:to-blue-700" },
+                  { 
+                    icon: MessageCircle, 
+                    href: "https://chat.whatsapp.com/sua-comunidade-vibe-coding", 
+                    label: "WhatsApp Community",
+                    color: "hover:from-green-500 hover:to-green-600",
+                    external: true
+                  },
                 ].map((social, idx) => (
                   <motion.a
                     key={social.label}
                     href={social.href}
+                    target={social.external ? "_blank" : undefined}
+                    rel={social.external ? "noopener noreferrer" : undefined}
                     initial={{ opacity: 0, scale: 0.8 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     transition={{ duration: 0.4, delay: 0.3 + idx * 0.1 }}
                     whileHover={{ scale: 1.1 }}
-                    className="w-8 h-8 bg-gray-800 dark:bg-dark-100 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-gradient-to-r hover:from-purple-500 hover:to-cyan-500 transition-all duration-300"
+                    className={`w-8 h-8 bg-gray-800 dark:bg-dark-100 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-gradient-to-r ${social.color || 'hover:from-purple-500 hover:to-cyan-500'} transition-all duration-300`}
                     aria-label={social.label}
                   >
                     <social.icon className="w-4 h-4" />
