@@ -116,7 +116,7 @@ export const Footer: React.FC = () => {
                   { icon: Linkedin, href: "#", label: "LinkedIn", color: "hover:from-blue-600 hover:to-blue-700" },
                   { 
                     icon: MessageCircle, 
-                    href: "https://chat.whatsapp.com/sua-comunidade-vibe-coding", 
+                    href: "https://chat.whatsapp.com/CF2pLdoltqD2smaEYWCk4u", 
                     label: "WhatsApp Community",
                     color: "hover:from-green-500 hover:to-green-600",
                     external: true
